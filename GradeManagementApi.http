@@ -1,0 +1,6 @@
+@GradeManagementApi_HostAddress = http://localhost:5164
+
+GET {{GradeManagementApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
