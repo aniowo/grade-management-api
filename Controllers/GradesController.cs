@@ -97,22 +97,8 @@ namespace GradeManagementApi.Controllers
 
             _context.Entry(existingGrade).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!GradeExists(existingGrade.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            await _context.SaveChangesAsync();
+           
             return Ok(new { message = "Grade Updated Successfully" });
         }
 
@@ -132,11 +118,6 @@ namespace GradeManagementApi.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Grade Deleted Successfully" });
-        }
-
-        private bool GradeExists(int id)
-        {
-            return _context.Grades.Any(e => e.Id == id);
         }
     }
 }

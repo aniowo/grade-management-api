@@ -20,8 +20,8 @@ namespace GradeManagementApi.Models
         public string? Note { get; set; }
 
         public int StudentId { get; set; }
-        [ForeignKey("StudentId")]
 
+        [ForeignKey("StudentId")]
         public Student? Student { get; set; }
     }
 }
