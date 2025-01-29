@@ -5,7 +5,8 @@ using GradeManagementApi.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
+builder.Services.AddScoped<IGradeService, GradeService>();
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
